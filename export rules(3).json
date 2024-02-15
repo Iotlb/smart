@@ -1,0 +1,18 @@
+{
+  "streams": {
+    "streamtraffico": "\n              CREATE STREAM streamtraffico\n              (\n      Orario datetime,  ID_Edge string, ID_Lane string, ID_Veicolo string, Posizione_Veicolo float, Veloc_Veicolo float\n    )\n              WITH (DATASOURCE=\"topic1\", FORMAT=\"json\", TYPE=\"mqtt\", SHARED=\"false\", );\n          "
+  },
+  "tables": {},
+  "rules": {
+    "2024-02": "{\"triggered\":false,\"id\":\"2024-02\",\"name\":\"lenti4\",\"sql\":\"SELECT * FROM streamtraffico WHERE Veloc_Veicolo \\u003c 4 AND ID_Veicolo != \\\"\\\"\",\"actions\":[{\"file\":{\"bufferLength\":1024,\"enableCache\":false,\"format\":\"json\",\"omitIfEmpty\":false,\"path\":\"/kuiper/superlenti.txt\",\"runAsync\":false,\"sendSingle\":true}}],\"options\":{\"isEventTime\":false,\"lateTolerance\":1000,\"concurrency\":1,\"bufferLength\":1024,\"sendMetaToSink\":false,\"sendError\":true,\"qos\":0,\"checkpointInterval\":300000,\"restartStrategy\":{\"attempts\":0,\"delay\":1000,\"multiplier\":2,\"maxDelay\":30000,\"jitter\":0.1}}}"
+  },
+  "nativePlugins": {},
+  "portablePlugins": {},
+  "sourceConfig": {
+    "mqtt": "{\"\":{}}"
+  },
+  "sinkConfig": {},
+  "connectionConfig": {},
+  "Service": {},
+  "Schema": {}
+}
