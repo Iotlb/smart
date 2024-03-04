@@ -1,0 +1,10 @@
+Pos , Sim , Lane_id , Traffic_density , Timeloss
+1 , simulazione-1 , 24235718#1_0 , 0.54 , 0.63
+2 , simulazione-2 , 24235718#1_0 , 2.83 , 5.16
+3 , simulazione-3 , 24235718#1_0 , 6.96 , 12.69
+4 , simulazione-4 , 24235718#1_0 , 10.92 , 21.07
+5 , simulazione-5 , 24235718#1_0 , 14.16 , 27.47
+6 , simulazione-6 , 24235718#1_0 , 21.18 , 42.48
+7 , simulazione-7 , 24235718#1_0 , 35.66 , 74.04
+8 , simulazione-8 , 24235718#1_0 , 55.76 , 140.50
+9 , simulazione-9 , 24235718#1_0 , 52.91 , 137.88

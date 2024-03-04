@@ -1,0 +1,22 @@
+{
+  "streams": {
+    "streamtraffico": "\n              CREATE STREAM streamtraffico\n              (\n      Lane_id string, Lane_Density float, Lane_Timeloss float, Simulazione string\n    )\n              WITH (DATASOURCE=\"topic1\", FORMAT=\"json\", TYPE=\"mqtt\", SHARED=\"false\", );\n          "
+  },
+  "tables": {},
+  "rules": {
+    "2024-02-23": "{\"triggered\":true,\"id\":\"2024-02-23\",\"name\":\"ricevitutto\",\"sql\":\"SELECT * FROM streamtraffico \",\"actions\":[{\"file\":{\"bufferLength\":1024,\"enableCache\":false,\"format\":\"json\",\"omitIfEmpty\":false,\"path\":\"/kuiper/tuttoiltraffico.xml\",\"runAsync\":false,\"sendSingle\":true}}],\"options\":{\"isEventTime\":false,\"lateTolerance\":1000,\"concurrency\":1,\"bufferLength\":1024,\"sendMetaToSink\":false,\"sendError\":true,\"qos\":0,\"checkpointInterval\":300000,\"restartStrategy\":{\"attempts\":0,\"delay\":1000,\"multiplier\":2,\"maxDelay\":30000,\"jitter\":0.1}}}",
+    "2024-02-232": "{\"triggered\":true,\"id\":\"2024-02-232\",\"name\":\"piutrafficate\",\"sql\":\"SELECT * FROM streamtraffico WHERE Lane_Density \\u003e \\\"8.0\\\"\",\"actions\":[{\"file\":{\"bufferLength\":1024,\"enableCache\":false,\"format\":\"json\",\"omitIfEmpty\":false,\"path\":\"/kuiper/sopra8.xml\",\"runAsync\":false,\"sendSingle\":true}}],\"options\":{\"isEventTime\":false,\"lateTolerance\":1000,\"concurrency\":1,\"bufferLength\":1024,\"sendMetaToSink\":false,\"sendError\":true,\"qos\":0,\"checkpointInterval\":300000,\"restartStrategy\":{\"attempts\":0,\"delay\":1000,\"multiplier\":2,\"maxDelay\":30000,\"jitter\":0.1}}}",
+    "2024-02-233": "{\"triggered\":true,\"id\":\"2024-02-233\",\"name\":\"filtrostrada1\",\"sql\":\"SELECT * FROM streamtraffico WHERE Lane_id = \\\"-24496199#1_0\\\"\",\"actions\":[{\"file\":{\"bufferLength\":1024,\"enableCache\":false,\"format\":\"json\",\"omitIfEmpty\":false,\"path\":\"/kuiper/strada1.xml\",\"runAsync\":false,\"sendSingle\":true}}],\"options\":{\"isEventTime\":false,\"lateTolerance\":1000,\"concurrency\":1,\"bufferLength\":1024,\"sendMetaToSink\":false,\"sendError\":true,\"qos\":0,\"checkpointInterval\":300000,\"restartStrategy\":{\"attempts\":0,\"delay\":1000,\"multiplier\":2,\"maxDelay\":30000,\"jitter\":0.1}}}",
+    "2024-02-234": "{\"triggered\":true,\"id\":\"2024-02-234\",\"name\":\"filtrostrada2\",\"sql\":\"SELECT * FROM streamtraffico WHERE Lane_id = \\\"100289763#2_0\\\"\",\"actions\":[{\"file\":{\"bufferLength\":1024,\"enableCache\":false,\"format\":\"json\",\"omitIfEmpty\":false,\"path\":\"/kuiper/strada2.xml\",\"runAsync\":false,\"sendSingle\":true}}],\"options\":{\"isEventTime\":false,\"lateTolerance\":1000,\"concurrency\":1,\"bufferLength\":1024,\"sendMetaToSink\":false,\"sendError\":true,\"qos\":0,\"checkpointInterval\":300000,\"restartStrategy\":{\"attempts\":0,\"delay\":1000,\"multiplier\":2,\"maxDelay\":30000,\"jitter\":0.1}}}",
+    "2024-02-235": "{\"triggered\":true,\"id\":\"2024-02-235\",\"name\":\"filtrostrada3\",\"sql\":\"SELECT * FROM streamtraffico WHERE Lane_id =\\\"24235718#1_0\\\"\",\"actions\":[{\"file\":{\"bufferLength\":1024,\"enableCache\":false,\"format\":\"json\",\"omitIfEmpty\":false,\"path\":\"/kuiper/strada3.xml\",\"runAsync\":false,\"sendSingle\":true}}],\"options\":{\"isEventTime\":false,\"lateTolerance\":1000,\"concurrency\":1,\"bufferLength\":1024,\"sendMetaToSink\":false,\"sendError\":true,\"qos\":0,\"checkpointInterval\":300000,\"restartStrategy\":{\"attempts\":0,\"delay\":1000,\"multiplier\":2,\"maxDelay\":30000,\"jitter\":0.1}}}"
+  },
+  "nativePlugins": {},
+  "portablePlugins": {},
+  "sourceConfig": {
+    "mqtt": "{\"\":{}}"
+  },
+  "sinkConfig": {},
+  "connectionConfig": {},
+  "Service": {},
+  "Schema": {}
+}
